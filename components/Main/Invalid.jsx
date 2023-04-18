@@ -1,6 +1,6 @@
 import { AiOutlineQuestionCircle } from "react-icons/ai";
-
-export default function Invalid() {
+import Button from "../Button";
+export default function Invalid({setcurrent}) {
 	return (
 		<div className="flex flex-col items-center space-y-10  h-full  pb-4">
 			<AiOutlineQuestionCircle className="w-32 h-32 text-black" />
@@ -8,6 +8,12 @@ export default function Invalid() {
 				<h3 className="uppercase text-2xl">Invalid Bus Pass</h3>
 			</div>
 			<h1 className="text-9xl text-red-500">X</h1>
+			<div className="flex space-x-6 py-8 ">
+			<Button text="Scan Again" onClick={()=>{
+				setcurrent('qr')
+			}}/>
+			<Button text="cancel" onClick={()=>setcurrent('verification')}/>
+			</div>
 		</div>
 	);
 }

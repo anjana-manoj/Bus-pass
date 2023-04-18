@@ -17,7 +17,7 @@ export default function Main({ current, setcurrent }) {
 			) : current === "profile" ? (
 				<Profile studentData={studentData} />
 			) : current === "invalid" ? (
-				<Invalid />
+				<Invalid setcurrent={setcurrent}/>
 			) : (
 				current === "qr" && (
 					<QRReader setstudentData={setstudentData} setcurrent={setcurrent} />
