@@ -1,7 +1,9 @@
 import { BsCheckCircle } from "react-icons/bs";
 import { BiErrorCircle } from "react-icons/bi";
+import Button from "../Button";
 
-export default function Profile({ studentData }) {
+export default function Profile({ setcurrent,studentData }) {
+	console.log(studentData)
 	return (
 		<div className="flex flex-col items-center space-y-8  h-full  pb-4">
 			<div className="flex flex-col space-y-2 w-full justify-center items-center">
@@ -13,6 +15,10 @@ export default function Profile({ studentData }) {
 					<div className="flex flex-col font-thin w-2/5">
 						<p>Name</p>
 						<p>Pass ID</p>
+						<p>YEAR OF JOIN</p>
+						<p>BOARDING PLACE</p>
+						<p>VALID TILL</p>
+						
 					</div>
 					<div className="h-full w-1/5 flex justify-center items-center">
 						<div className="bg-red-500 w-0.5 h-full" />
@@ -20,8 +26,13 @@ export default function Profile({ studentData }) {
 					<div className="flex flex-col font-thin w-2/5">
 						<p>{studentData.student.student_name}</p>
 						<p>{studentData.student.pass_id}</p>
-					</div>
+						<p>{studentData.student.year_of_join}</p>
+						<p>{studentData.student.boarding_place===null?"nill":studentData.student.boarding_place}</p>
+						<p>{studentData.student.valid_till}</p>
+						
+					</div>					
 				</div>
+				
 			</div>
 
 			<div className="flex flex-col space-y-4 w-full justify-center items-center">
@@ -38,6 +49,14 @@ export default function Profile({ studentData }) {
 					<BsCheckCircle className="w-20 h-20 text-green-500" />
 				)}
 			</div>
+			<div className="flex space-x-6 py-10 ">
+				<Button text="Scan Again" onClick={()=>{
+				setcurrent('qr')
+				}}/>
+				<Button text="cancel" onClick={()=>setcurrent('verification')}/>
+			</div>
+			
+			
 		</div>
 	);
 }

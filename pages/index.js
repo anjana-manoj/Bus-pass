@@ -10,7 +10,8 @@ export default function Home() {
 		<div className="bg-zinc-200 w-screen min-h-screen h-screen flex flex-col justify-between">
 			{current !== "qr" && <Header setcurrent={setcurrent} />}
 			<Main current={current} setcurrent={setcurrent} />
-			<Footer />
+			
+			{current === "verification" && <Footer />}
 		</div>
 	);
 }

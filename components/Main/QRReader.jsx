@@ -12,24 +12,23 @@ export default function QRReader({ setcurrent, setstudentData }) {
 	const [tryagain, settryagain] = useState(false);
 
 	useEffect(() => {
-		let qrScanner
-		let timeOut
-		qrScanner = new QrScanner(
+		const qrScanner = new QrScanner(
 			videoRef.current,
-		(result) => {
-			fetchBusPass(
-				result?.data,
-				setstudentData,
-				setcurrent,
-				setloading,
-				seterror
-			);
-			qrScanner.stop();
-		},
-		{
-			highlightScanRegion: true,
-		}
-		);
+			(result) => {
+				fetchBusPass(
+					result?.data,
+					setstudentData,
+					setcurrent,
+					setloading,
+					seterror
+					);
+					qrScanner.stop();
+				},
+				{
+					highlightScanRegion: true,
+				}
+				);
+		let timeOut
 		if(!tryagain){
 			qrScanner.start();
 			timeOut = setTimeout(() => {

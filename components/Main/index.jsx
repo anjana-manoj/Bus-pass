@@ -15,7 +15,7 @@ export default function Main({ current, setcurrent }) {
 					setstudentData={setstudentData}
 				/>
 			) : current === "profile" ? (
-				<Profile studentData={studentData} />
+				<Profile studentData={studentData} setcurrent={setcurrent}/>
 			) : current === "invalid" ? (
 				<Invalid setcurrent={setcurrent}/>
 			) : (

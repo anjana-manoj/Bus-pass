@@ -46,6 +46,7 @@ export default function PassVerification({ setcurrent, setstudentData }) {
 					{error.type && <p className="text-red-500"> {error.message}</p>}
 				</div>
 			</div>
+		
 		</div>
 	);
 }
